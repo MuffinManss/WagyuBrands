@@ -71,20 +71,17 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-10 mb-10">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-10 h-10">
+            <div className="flex flex-col gap-1 mb-4">
+              <div className="relative h-10 w-36">
                 <Image
-                  src="/images/pofuyu-char.png"
+                  src="/images/moonmaru_logo.png"
                   alt="Moonmaru"
                   fill
-                  className="object-contain"
-                  sizes="40px"
+                  className="object-contain object-left"
+                  sizes="144px"
                 />
               </div>
-              <div>
-                <p className="font-display font-extrabold text-xl text-gradient">moonmaru</p>
-                <p className="font-body text-xs text-brown-light">by Wagyu Brands</p>
-              </div>
+              <p className="font-body text-xs text-brown-light">by Wagyu Brands</p>
             </div>
             <p className="font-body text-sm text-brown-medium dark:text-brown-light leading-relaxed max-w-xs">
               Kawaii collectible characters for people who believe the world needs a little more softness.

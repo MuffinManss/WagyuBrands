@@ -40,6 +40,13 @@ const images = [
     unoptimized: false,
     aspect: 'aspect-video',
   },
+  {
+    src: '/images/moomaru_banner.png',
+    alt: 'Moonmaru brand banner',
+    tag: 'Artwork',
+    unoptimized: false,
+    aspect: 'aspect-video',
+  },
 ]
 
 const FILTERS = ['All', 'Characters', 'Animated', 'Artwork']

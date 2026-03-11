@@ -382,6 +382,23 @@ export default function Hero() {
           </div>
         </div>
 
+        {/* Banner image */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.8 }}
+          className="mt-12 relative w-full max-w-4xl mx-auto rounded-4xl overflow-hidden shadow-soft-lg border-2 border-white/60"
+        >
+          <Image
+            src="/images/moomaru_banner.png"
+            alt="Moonmaru brand banner"
+            width={1200}
+            height={400}
+            className="w-full h-auto object-cover"
+            priority
+          />
+        </motion.div>
+
         {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}

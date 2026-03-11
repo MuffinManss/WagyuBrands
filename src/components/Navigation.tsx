@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 import ThemeToggle from './ThemeToggle'
 
 const NAV_ITEMS = [
@@ -15,8 +16,16 @@ const NAV_ITEMS = [
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   const [active, setActive] = useState('#hero')
   const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile, { passive: true })
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   useEffect(() => {
     const onScroll = () => {
@@ -36,18 +45,27 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const navVisible = scrolled || isMobile
+
   return (
     <>
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
-        animate={{ y: scrolled ? 0 : -100, opacity: scrolled ? 1 : 0 }}
+        animate={{ y: navVisible ? 0 : -100, opacity: navVisible ? 1 : 0 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 py-3 glass shadow-soft border-b border-white/30"
         aria-label="Main navigation"
       >
         {/* Logo */}
-        <a href="#hero" className="font-display text-xl font-bold text-gradient">
-          🐄 moonmaru
+        <a href="#hero" className="flex items-center" aria-label="Moonmaru home">
+          <Image
+            src="/images/moonmaru_logo.png"
+            alt="Moonmaru"
+            width={120}
+            height={40}
+            className="object-contain h-9 w-auto"
+            priority
+          />
         </a>
 
         {/* Desktop links */}

@@ -47,14 +47,20 @@ export default function LoadingScreen() {
               />
             </motion.div>
 
-            {/* Brand name */}
-            <motion.p
-              className="font-display text-2xl font-bold text-brown-dark"
+            {/* Brand logo */}
+            <motion.div
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 1.5, repeat: Infinity }}
+              className="relative h-10 w-40"
             >
-              moonmaru
-            </motion.p>
+              <Image
+                src="/images/moonmaru_logo.png"
+                alt="Moonmaru"
+                fill
+                className="object-contain"
+                priority
+              />
+            </motion.div>
 
             {/* Dots */}
             <div className="flex gap-2">
