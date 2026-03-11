@@ -171,20 +171,27 @@ export default function Hero() {
     <section
       id="hero"
       ref={ref}
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-8 pb-12"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-0 pb-12"
       aria-label="Hero section"
     >
-      {/* Gradient background */}
+      {/* moomaru_banner as background with gradient overlay */}
       <motion.div
         style={{ y: bgY }}
         className="absolute inset-0 -z-10"
         aria-hidden="true"
       >
+        <Image
+          src="/images/moomaru_banner.png"
+          alt=""
+          fill
+          className="object-cover opacity-50"
+          priority
+        />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 130% 90% at 50% -10%, #ffd6e7 0%, #fffaf3 45%, #e8d5f5 100%)',
+              'radial-gradient(ellipse 130% 90% at 50% -10%, #ffd6e780 0%, #fffaf3cc 45%, #e8d5f590 100%)',
           }}
         />
         {/* Decorative blobs */}
@@ -228,11 +235,33 @@ export default function Hero() {
         </motion.span>
       ))}
 
+      {/* character-scene banner at the very top */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="w-full mb-8"
+        aria-hidden="true"
+      >
+        <div className="relative w-full overflow-hidden">
+          <Image
+            src="/images/character-scene.jpeg"
+            alt="Moonmaru characters scene"
+            width={1920}
+            height={1080}
+            className="w-full h-auto"
+            priority
+          />
+          {/* Bottom fade into hero */}
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#fffaf3] dark:from-[#1a1117] to-transparent" />
+        </div>
+      </motion.div>
+
       <div className="w-full max-w-6xl mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+        <div className="flex flex-col items-center">
 
           {/* ── Text column ─────────────────────────────── */}
-          <div className="flex-1 text-center lg:text-left z-10">
+          <div className="w-full max-w-2xl text-center z-10">
             {/* Badge */}
             <motion.div
               custom={0} variants={fadeUp} initial="hidden" animate="visible"
@@ -270,7 +299,7 @@ export default function Hero() {
             {/* Sub-text */}
             <motion.p
               custom={3} variants={fadeUp} initial="hidden" animate="visible"
-              className="font-body text-brown-medium dark:text-brown-light text-base md:text-lg max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed"
+              className="font-body text-brown-medium dark:text-brown-light text-base md:text-lg max-w-lg mx-auto mb-8 leading-relaxed"
             >
               Meet <strong className="text-brown-dark dark:text-cream">Moonmaru</strong> and{' '}
               <strong className="text-brown-dark dark:text-cream">Macarune</strong> — two impossibly
@@ -292,112 +321,7 @@ export default function Hero() {
             </motion.p>
           </div>
 
-          {/* ── Characters column (SVG renders instantly) ── */}
-          <div className="flex-1 flex items-end justify-center gap-2 md:gap-6 relative z-10">
-
-            {/* Moonmaru */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.7, y: 40 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ delay: 0.3, type: 'spring', stiffness: 140, damping: 16 }}
-              className="relative"
-            >
-              <motion.div
-                animate={{ y: [0, -14, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                className="relative"
-              >
-                {/* SVG character — loads instantly */}
-                <MoonmaruSVG className="w-44 h-44 md:w-60 md:h-60 drop-shadow-xl" />
-
-                {/* Real image layered on top once loaded */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Image
-                    src="/images/pofuyu-char.png"
-                    alt="Moonmaru"
-                    width={200}
-                    height={200}
-                    className="object-contain w-full h-full opacity-0 transition-opacity duration-700"
-                    priority
-                    onLoad={e => {
-                      ;(e.target as HTMLImageElement).style.opacity = '1'
-                    }}
-                    sizes="(max-width: 768px) 176px, 240px"
-                  />
-                </div>
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-3/4 h-4 bg-black/10 blur-lg rounded-full" />
-              </motion.div>
-
-              {/* Name badge */}
-              <motion.div
-                animate={{ scale: [1, 1.06, 1] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -top-4 -right-2 bg-pink rounded-2xl px-3 py-1 text-xs font-display font-bold text-brown-dark shadow-soft border border-pink-medium/30 whitespace-nowrap"
-              >
-                Moonmaru 🐄
-              </motion.div>
-            </motion.div>
-
-            {/* Macarune */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.7, y: 40 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ delay: 0.5, type: 'spring', stiffness: 140, damping: 16 }}
-              className="relative"
-            >
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
-                className="relative"
-              >
-                {/* SVG character — loads instantly */}
-                <MacaruneSVG className="w-36 h-36 md:w-52 md:h-52 drop-shadow-xl" />
-
-                {/* GIF on top once loaded */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Image
-                    src="/images/mango-sunflowers.gif"
-                    alt="Macarune"
-                    width={180}
-                    height={180}
-                    className="object-contain w-full h-full opacity-0 transition-opacity duration-700"
-                    unoptimized
-                    onLoad={e => {
-                      ;(e.target as HTMLImageElement).style.opacity = '1'
-                    }}
-                    sizes="(max-width: 768px) 144px, 208px"
-                  />
-                </div>
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-3/4 h-3 bg-black/10 blur-lg rounded-full" />
-              </motion.div>
-
-              <motion.div
-                animate={{ scale: [1, 1.06, 1] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-                className="absolute -top-4 -left-2 bg-lavender rounded-2xl px-3 py-1 text-xs font-display font-bold text-brown-dark shadow-soft border border-lavender-medium/30 whitespace-nowrap"
-              >
-                Macarune 🦭
-              </motion.div>
-            </motion.div>
-          </div>
         </div>
-
-        {/* Banner image */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="mt-12 relative w-full max-w-4xl mx-auto rounded-4xl overflow-hidden shadow-soft-lg border-2 border-white/60"
-        >
-          <Image
-            src="/images/moomaru_banner.png"
-            alt="Moonmaru brand banner"
-            width={1200}
-            height={400}
-            className="w-full h-auto object-cover"
-            priority
-          />
-        </motion.div>
 
         {/* Scroll indicator */}
         <motion.div

@@ -11,6 +11,9 @@ export default function CustomCursor() {
   const isHoveringRef = useRef(false)
 
   useEffect(() => {
+    // Don't run on touch devices
+    if (!window.matchMedia('(pointer: fine)').matches) return
+
     const move = (e: MouseEvent) => {
       cursorX.set(e.clientX)
       cursorY.set(e.clientY)

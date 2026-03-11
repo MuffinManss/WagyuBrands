@@ -19,6 +19,9 @@ export default function Particles() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
+    // Skip particles on mobile — too expensive
+    if (window.innerWidth < 768) return
+
     const canvas = canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext('2d')
