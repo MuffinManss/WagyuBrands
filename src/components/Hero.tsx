@@ -55,25 +55,11 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden"
       aria-label="Hero section"
-      style={{ background: 'linear-gradient(180deg, #fff5f9 0%, #fffaf3 60%, #f5ede0 100%)' }}
+      style={{ margin: 0, padding: 0, background: 'linear-gradient(180deg, #fff5f9 0%, #fffaf3 100%)' }}
     >
-      {/* Subtle pastel blobs */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div className="absolute top-[15%] left-[-8%] w-80 h-80 rounded-full blur-3xl opacity-40" style={{ background: '#ffd6e7' }} />
-        <div className="absolute top-[30%] right-[-6%] w-72 h-72 rounded-full blur-3xl opacity-30" style={{ background: '#e8d5f5' }} />
-        <div className="absolute bottom-[20%] left-[30%] w-64 h-64 rounded-full blur-3xl opacity-25" style={{ background: '#d4f5e9' }} />
-      </div>
-
-      {/* ── 1. Top banner — full width, no crop ── */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="w-full relative z-10"
-        aria-hidden="true"
-      >
+      {/* ── Top banner — full width, no crop ── */}
+      <div style={{ width: '100%', lineHeight: 0 }}>
         <Image
           src="/images/new_banner.jpg"
           alt="Wagyu Brands — Moonmaru and Macarune"
@@ -82,11 +68,10 @@ export default function Hero() {
           priority
           style={{ width: '100%', height: 'auto', display: 'block' }}
         />
-      </motion.div>
+      </div>
 
-      {/* ── 2. Text content — centered, above the character ── */}
-      <div className="relative z-10 w-full max-w-3xl mx-auto px-6 pt-10 pb-6 text-center">
-
+      {/* ── Text content — centered ── */}
+      <div style={{ textAlign: 'center', padding: '2.5rem 1.5rem 2rem' }}>
         <motion.div
           custom={0} variants={fadeUp} initial="hidden" animate="visible"
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pink border border-pink-medium/40 text-brown-dark text-sm font-semibold font-body mb-6"
@@ -96,7 +81,7 @@ export default function Hero() {
 
         <motion.h1
           custom={1} variants={fadeUp} initial="hidden" animate="visible"
-          className="font-display font-extrabold leading-tight mb-4"
+          className="font-display font-extrabold leading-tight mb-4 text-center"
           style={{ fontSize: 'clamp(2.8rem, 7vw, 5rem)' }}
         >
           <span className="text-gradient">Wagyu</span>
@@ -120,7 +105,8 @@ export default function Hero() {
 
         <motion.p
           custom={3} variants={fadeUp} initial="hidden" animate="visible"
-          className="font-body text-brown-medium dark:text-brown-light text-base md:text-lg max-w-xl mx-auto mb-8 leading-relaxed"
+          className="font-body text-brown-medium dark:text-brown-light text-base md:text-lg mx-auto mb-8 leading-relaxed"
+          style={{ maxWidth: '560px' }}
         >
           Meet <strong className="text-brown-dark dark:text-cream">Moonmaru</strong> and{' '}
           <strong className="text-brown-dark dark:text-cream">Macarune</strong> — two impossibly
@@ -128,80 +114,30 @@ export default function Hero() {
           blind boxes, and more on the way. 🌸
         </motion.p>
 
-        <motion.div custom={4} variants={fadeUp} initial="hidden" animate="visible" className="max-w-md mx-auto">
+        <motion.div custom={4} variants={fadeUp} initial="hidden" animate="visible" style={{ maxWidth: '420px', margin: '0 auto' }}>
           <EmailCapture source="hero" />
         </motion.div>
 
         <motion.p
           custom={5} variants={fadeUp} initial="hidden" animate="visible"
-          className="text-xs text-brown-light mt-3 font-body"
+          className="text-xs text-brown-light font-body"
+          style={{ marginTop: '0.75rem' }}
         >
           🐄 Join 1,000+ fans already waiting for the drop!
         </motion.p>
       </div>
 
-      {/* ── 3. Main character image — the centerpiece ── */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 0.4, ease: 'easeOut' }}
-        className="relative z-10 w-full flex justify-center px-4 pb-0"
-      >
-        {/* Glow under the image */}
-        <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-32 blur-3xl opacity-50 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse, #ffd6e7 0%, transparent 70%)' }}
-          aria-hidden="true"
+      {/* ── Main character image — full-width cinematic splash ── */}
+      <div style={{ width: '100%', lineHeight: 0, margin: 0, padding: 0 }}>
+        <Image
+          src="/images/main.png"
+          alt="Moonmaru — kawaii cow character"
+          width={1920}
+          height={1080}
+          priority
+          style={{ width: '100%', height: 'auto', display: 'block' }}
         />
-        <motion.div
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <Image
-            src="/images/main.png"
-            alt="Moonmaru — kawaii cow character in a snowy scene"
-            width={960}
-            height={680}
-            priority
-            style={{ width: '100%', maxWidth: '720px', height: 'auto', display: 'block' }}
-          />
-        </motion.div>
-      </motion.div>
-
-      {/* Floating decorative stars */}
-      {['✦', '✧', '⋆', '✩', '✫', '❋', '✿'].map((sym, i) => (
-        <motion.span
-          key={i}
-          className="absolute pointer-events-none select-none text-pink-medium/50 font-body z-10"
-          style={{
-            fontSize: `${10 + (i % 3) * 5}px`,
-            left: `${5 + i * 13}%`,
-            top: `${20 + (i % 5) * 12}%`,
-          }}
-          animate={{ y: [0, -10, 0], opacity: [0.3, 0.7, 0.3], rotate: [0, 15, 0] }}
-          transition={{ duration: 3 + i * 0.6, repeat: Infinity, delay: i * 0.4, ease: 'easeInOut' }}
-          aria-hidden="true"
-        >
-          {sym}
-        </motion.span>
-      ))}
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.6 }}
-        className="relative z-10 flex flex-col items-center py-6 gap-1"
-      >
-        <p className="text-xs font-body text-brown-light">scroll to explore</p>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-5 h-8 rounded-full border-2 border-brown-light/50 flex items-start justify-center pt-1"
-        >
-          <div className="w-1 h-2 rounded-full bg-brown-light/70" />
-        </motion.div>
-      </motion.div>
+      </div>
     </section>
   )
 }
