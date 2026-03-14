@@ -70,7 +70,19 @@ export default function Hero() {
         />
       </div>
 
-      {/* ── Text content — centered ── */}
+      {/* ── Main character image — full-width cinematic splash ── */}
+      <div style={{ width: '100%', lineHeight: 0, margin: 0, padding: 0 }}>
+        <Image
+          src="/images/main.png"
+          alt="Moonmaru — kawaii cow character"
+          width={1920}
+          height={1080}
+          priority
+          style={{ width: '100%', height: 'auto', display: 'block' }}
+        />
+      </div>
+
+      {/* ── Text content — centered, below the image ── */}
       <div style={{ textAlign: 'center', padding: '2.5rem 1.5rem 2rem' }}>
         <motion.div
           custom={0} variants={fadeUp} initial="hidden" animate="visible"
@@ -125,18 +137,6 @@ export default function Hero() {
         >
           🐄 Join 1,000+ fans already waiting for the drop!
         </motion.p>
-      </div>
-
-      {/* ── Main character image — full-width cinematic splash ── */}
-      <div style={{ width: '100%', lineHeight: 0, margin: 0, padding: 0 }}>
-        <Image
-          src="/images/main.png"
-          alt="Moonmaru — kawaii cow character"
-          width={1920}
-          height={1080}
-          priority
-          style={{ width: '100%', height: 'auto', display: 'block' }}
-        />
       </div>
     </section>
   )
