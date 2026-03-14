@@ -4,6 +4,7 @@ import Story from '@/components/Story'
 import Products from '@/components/Products'
 import Gallery from '@/components/Gallery'
 import Community from '@/components/Community'
+import MoomaruPeek from '@/components/MoomaruPeek'
 import Footer from '@/components/Footer'
 import Navigation from '@/components/Navigation'
 import ScrollProgress from '@/components/ScrollProgress'
@@ -33,6 +34,7 @@ export default function Home() {
         <Products />
         <Gallery />
         <Community />
+        <MoomaruPeek />
       </main>
 
       <Footer />
