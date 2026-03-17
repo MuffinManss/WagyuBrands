@@ -53,22 +53,8 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@300;400;500;600;700;800&family=Bubblegum+Sans&display=swap"
           rel="stylesheet"
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('moonmaru-theme');
-                  if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    document.documentElement.classList.add('dark');
-                  }
-                } catch(e) {}
-              })();
-            `,
-          }}
-        />
       </head>
-      <body className="font-body bg-cream dark:bg-[#1a1117] text-brown-deep dark:text-cream transition-colors duration-300">
+      <body className="font-body bg-cream text-brown-deep">
         {children}
       </body>
     </html>

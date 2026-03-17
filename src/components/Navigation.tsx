@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
-import ThemeToggle from './ThemeToggle'
 
 const NAV_ITEMS = [
   { label: 'Home',       href: '#hero' },
@@ -87,7 +86,6 @@ export default function Navigation() {
         </ul>
 
         <div className="flex items-center gap-3">
-          <ThemeToggle />
           {/* Mobile hamburger */}
           <button
             onClick={() => setMenuOpen(v => !v)}

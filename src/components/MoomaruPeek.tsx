@@ -6,14 +6,14 @@ export default function MoomaruPeek() {
   return (
     <section
       aria-hidden="true"
-      style={{ width: '100%', margin: 0, padding: 0, lineHeight: 0, display: 'block' }}
+      style={{ width: '100%', margin: 0, padding: 0, lineHeight: 0, display: 'flex', justifyContent: 'center' }}
     >
       <Image
         src="/images/moomaru_banner.png"
         alt="Moonmaru peeking"
         width={1200}
         height={860}
-        style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
+        style={{ width: '55%', height: 'auto', display: 'block' }}
       />
     </section>
   )

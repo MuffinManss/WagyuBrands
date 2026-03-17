@@ -59,7 +59,7 @@ export default function Hero() {
       style={{ margin: 0, padding: 0, background: '#ffffff' }}
     >
       {/* ── Hero banner — logo | socials | cows | nav ── */}
-      <div style={{ width: '100%', background: '#ffffff', display: 'flex', alignItems: 'center', padding: '0 2rem', boxSizing: 'border-box' }}>
+      <div style={{ width: '100%', background: '#ffffff', display: 'flex', alignItems: 'center', padding: '0 2rem', boxSizing: 'border-box', position: 'relative' }}>
 
         {/* Logo — far left */}
         <Image
@@ -87,15 +87,20 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* Cows — true center */}
-        <Image
-          src="/images/banner_middle.png"
-          alt="Moonmaru and Macarune"
-          width={400}
-          height={200}
-          priority
-          style={{ height: 'auto', width: '180px', display: 'block', flexShrink: 0 }}
-        />
+        {/* Cows — absolutely centered in the full banner */}
+        <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none' }}>
+          <Image
+            src="/images/banner_middle.png"
+            alt="Moonmaru and Macarune"
+            width={400}
+            height={200}
+            priority
+            style={{ height: 'auto', width: '180px', display: 'block' }}
+          />
+        </div>
+
+        {/* Spacer to keep nav pushed right */}
+        <div style={{ width: '180px', flexShrink: 0 }} />
 
         {/* Nav links — right side */}
         <nav style={{ flex: 1, display: 'flex', justifyContent: 'center', gap: '1.5rem', alignItems: 'center' }}>
