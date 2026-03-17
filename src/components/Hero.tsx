@@ -131,15 +131,15 @@ export default function Hero() {
         </nav>
       </div>
 
-      {/* ── Mobile banner — logo + cows stacked ── */}
-      <div className="flex md:hidden flex-col items-center gap-2 pt-4 pb-2" style={{ background: '#ffffff' }}>
+      {/* ── Mobile banner — logo left, cows right ── */}
+      <div className="flex md:hidden items-center justify-between px-4 py-2" style={{ background: '#ffffff' }}>
         <Image
           src="/images/banner_logo.png"
           alt="Wagyu Brands logo"
           width={400}
           height={200}
           priority
-          style={{ height: 'auto', width: '140px', display: 'block' }}
+          style={{ height: 'auto', width: '130px', display: 'block' }}
         />
         <Image
           src="/images/banner_middle.png"
@@ -147,7 +147,7 @@ export default function Hero() {
           width={400}
           height={200}
           priority
-          style={{ height: 'auto', width: '160px', display: 'block' }}
+          style={{ height: 'auto', width: '150px', display: 'block' }}
         />
       </div>
 
