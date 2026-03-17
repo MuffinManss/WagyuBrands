@@ -126,42 +126,58 @@ export default function Community() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {socials.map((s, i) => (
-            <motion.a
-              key={s.name}
-              href={s.href}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              whileHover={{ y: -6, scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
-              className={`glass-card rounded-4xl border-2 ${s.border} shadow-soft p-5 flex items-center gap-4 group`}
-              aria-label={`${s.name} — ${s.handle}`}
-            >
-              {/* Icon */}
-              <div
-                className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${s.color} flex items-center justify-center text-white shadow-soft flex-shrink-0`}
-              >
-                {s.icon}
-              </div>
+        {/* Two-column: video left, socials right */}
+        <div className="flex flex-col md:flex-row gap-8 items-start">
 
-              {/* Info */}
-              <div className="flex-1 min-w-0">
-                <p className="font-display font-bold text-brown-dark dark:text-cream text-sm">{s.name}</p>
-                <p className="font-body text-xs text-brown-light truncate">{s.handle}</p>
-              </div>
+          {/* Video — left side */}
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.15, duration: 0.7 }}
+            className="w-full md:w-2/5 rounded-3xl overflow-hidden shadow-soft-lg border border-white/60 flex-shrink-0"
+          >
+            <video
+              src="/images/social_media.mov"
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{ width: '100%', display: 'block' }}
+            />
+          </motion.div>
 
-              {/* Arrow */}
-              <motion.span
-                className="text-brown-light group-hover:text-brown-medium transition-colors text-lg"
-                animate={{ x: [0, 3, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+          {/* Socials — right side */}
+          <div className="flex-1 flex flex-col gap-4">
+            {socials.map((s, i) => (
+              <motion.a
+                key={s.name}
+                href={s.href}
+                initial={{ opacity: 0, x: 24 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                whileHover={{ y: -4, scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                className={`glass-card rounded-2xl border-2 ${s.border} shadow-soft p-4 flex items-center gap-4 group`}
+                aria-label={`${s.name} — ${s.handle}`}
               >
-                →
-              </motion.span>
-            </motion.a>
-          ))}
+                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${s.color} flex items-center justify-center text-white shadow-soft flex-shrink-0`}>
+                  {s.icon}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="font-display font-bold text-brown-dark dark:text-cream text-sm">{s.name}</p>
+                  <p className="font-body text-xs text-brown-light truncate">{s.handle}</p>
+                </div>
+                <motion.span
+                  className="text-brown-light group-hover:text-brown-medium transition-colors text-lg"
+                  animate={{ x: [0, 3, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  →
+                </motion.span>
+              </motion.a>
+            ))}
+          </div>
+
         </div>
 
         {/* Community message */}
