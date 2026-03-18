@@ -2,15 +2,13 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import EmailCapture from './EmailCapture'
 
 const NAV_LINKS = [
-  { label: 'Home',       href: '#hero' },
-  { label: 'Characters', href: '#characters' },
-  { label: 'Our Story',  href: '#story' },
-  { label: 'Products',   href: '#products' },
-  { label: 'Gallery',    href: '#gallery' },
-  { label: 'Community',  href: '#community' },
+  { label: 'Home',        href: '#hero' },
+  { label: 'Marketplace', href: '#marketplace' },
+  { label: 'About',       href: '#about' },
+  { label: 'Characters',  href: '#characters' },
+  { label: 'Community',   href: '#community' },
 ]
 
 export default function Footer() {
@@ -36,37 +34,6 @@ export default function Footer() {
       />
 
       <div className="max-w-6xl mx-auto">
-        {/* Top: signup CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-14 glass-card rounded-4xl p-8 border border-white/60 shadow-soft"
-        >
-          <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-            className="relative w-20 h-20 mx-auto mb-4"
-          >
-            <Image
-              src="/images/mango-sushi.gif"
-              alt="Macarune"
-              fill
-              className="object-contain"
-              unoptimized
-              sizes="80px"
-            />
-          </motion.div>
-          <h3 className="font-display font-extrabold text-2xl text-brown-dark dark:text-cream mb-2">
-            Don't miss the drop! 🎀
-          </h3>
-          <p className="font-body text-brown-medium dark:text-brown-light text-sm mb-6 max-w-sm mx-auto">
-            Be the first to know about launches, limited editions, and exclusive early-bird deals.
-          </p>
-          <EmailCapture source="footer" compact />
-        </motion.div>
-
         {/* Main footer grid */}
         <div className="grid md:grid-cols-3 gap-10 mb-10">
           {/* Brand */}

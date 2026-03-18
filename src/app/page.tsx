@@ -1,10 +1,8 @@
 import Hero from '@/components/Hero'
+import Marketplace from '@/components/Marketplace'
+import AboutBrand from '@/components/AboutBrand'
 import Characters from '@/components/Characters'
-import Story from '@/components/Story'
-import Products from '@/components/Products'
-import Gallery from '@/components/Gallery'
 import Community from '@/components/Community'
-import MoomaruPeek from '@/components/MoomaruPeek'
 import Footer from '@/components/Footer'
 import ScrollProgress from '@/components/ScrollProgress'
 import BackToTop from '@/components/BackToTop'
@@ -25,12 +23,10 @@ export default function Home() {
       {/* ── Sections ─────────────────────────────── */}
       <main>
         <Hero />
+        <AboutBrand />
         <Characters />
-        <Story />
-        <Products />
-        <Gallery />
         <Community />
-        <MoomaruPeek />
+        <Marketplace />
       </main>
 
       <Footer />

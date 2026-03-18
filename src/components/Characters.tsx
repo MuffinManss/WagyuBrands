@@ -11,8 +11,8 @@ const characters = [
     color: 'from-pink-light to-cream',
     borderColor: 'border-pink-medium/40',
     badgeBg: 'bg-pink',
-    image: '/images/pofuyu-char.png',
-    unoptimized: false,
+    image: '/images/mango-sunflowers.gif',
+    unoptimized: true,
     role: 'Primary Mascot',
     description:
       'Moonmaru is a dreamy little cow with soft white and brown patches, the fluffiest ears you\'ve ever seen, and a heart full of pure sunshine. She spends her days napping in flower fields, collecting shiny things, and writing tiny letters to her friends.',
@@ -31,8 +31,8 @@ const characters = [
     color: 'from-lavender-light to-cream',
     borderColor: 'border-lavender-medium/40',
     badgeBg: 'bg-lavender',
-    image: '/images/mango-sunflowers.gif',
-    unoptimized: true,
+    image: '/images/pofuyu-char.png',
+    unoptimized: false,
     role: 'Secondary Mascot',
     description:
       'Macarune is a round, velvety-brown walrus who takes life at his own perfect pace. He\'s always warm, always snuggly, and has an uncanny ability to make everyone around him feel instantly at home. He believes every day deserves a cozy snack.',
@@ -186,36 +186,6 @@ export default function Characters() {
           ))}
         </div>
 
-        {/* Extra character gif row */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6, duration: 0.7 }}
-          className="mt-12 flex flex-wrap justify-center gap-6"
-        >
-          {[
-            { src: '/images/mango-sushi.gif', alt: 'Macarune enjoying sushi', label: 'Sushi Day 🍱' },
-            { src: '/images/mango-void.gif', alt: 'Moonmaru in the void', label: 'Void Nap 🌑' },
-          ].map(gif => (
-            <motion.div
-              key={gif.src}
-              whileHover={{ scale: 1.06, rotate: 1 }}
-              className="flex flex-col items-center gap-2"
-            >
-              <div className="relative w-40 h-40 rounded-3xl overflow-hidden border-2 border-white/60 shadow-soft-lg glass-card">
-                <Image
-                  src={gif.src}
-                  alt={gif.alt}
-                  fill
-                  className="object-cover"
-                  unoptimized
-                  sizes="160px"
-                />
-              </div>
-              <span className="text-xs font-display font-semibold text-brown-medium">{gif.label}</span>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   )

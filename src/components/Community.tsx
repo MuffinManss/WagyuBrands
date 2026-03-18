@@ -180,36 +180,6 @@ export default function Community() {
 
         </div>
 
-        {/* Community message */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6, duration: 0.7 }}
-          className="mt-14 text-center glass-card rounded-4xl p-8 md:p-12 border border-white/60 shadow-soft-lg relative overflow-hidden"
-        >
-          <div
-            className="absolute inset-0 bg-gradient-to-br from-pink-light via-lavender-light to-mint-light opacity-50 rounded-4xl"
-            aria-hidden="true"
-          />
-          <div className="relative z-10">
-            <p className="text-4xl mb-4">🐄🦭💕</p>
-            <h3 className="font-display font-extrabold text-2xl md:text-3xl text-brown-dark dark:text-cream mb-3">
-              You belong here.
-            </h3>
-            <p className="font-body text-brown-medium dark:text-brown-light max-w-md mx-auto mb-6 leading-relaxed">
-              Our community is a soft, welcoming space for collectors, dreamers, and everyone who
-              believes the world is better with more cute things in it.
-            </p>
-            <motion.a
-              href="#hero"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.97 }}
-              className="inline-block btn-shimmer font-display font-bold text-white px-8 py-3.5 rounded-full shadow-soft"
-            >
-              Join the Herd 🐄
-            </motion.a>
-          </div>
-        </motion.div>
       </div>
     </section>
   )
