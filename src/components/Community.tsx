@@ -56,19 +56,19 @@ const socials = [
     href: '#',
   },
   {
-    name: 'YouTube',
-    handle: 'Wagyu Brands',
+    name: 'Wallpaper',
+    handle: 'Free Download',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6" aria-hidden="true">
-        <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+        <path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z" />
       </svg>
     ),
     color: 'from-pink-light to-peach-medium',
     bg: 'bg-cream-dark',
     border: 'border-brown-light/30',
     followers: '—',
-    cta: 'Subscribe',
-    href: '#',
+    cta: 'Download',
+    href: '/images/main.png',
   },
   {
     name: 'Discord',
@@ -122,7 +122,7 @@ export default function Community() {
             <span className="text-gradient">Adventures</span>
           </h2>
           <p className="font-body text-brown-medium dark:text-brown-light text-lg max-w-xl mx-auto">
-            Moonmaru and Macarune are always up to something cute. 🌸 Come hang out!
+            Moonmaru and Macarune are always up to something cute. Come hang out!
           </p>
         </motion.div>
 
@@ -152,6 +152,7 @@ export default function Community() {
               <motion.a
                 key={s.name}
                 href={s.href}
+                {...(s.name === 'Wallpaper' ? { download: 'moonmaru-wallpaper.png' } : {})}
                 initial={{ opacity: 0, x: 24 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: i * 0.08, duration: 0.5 }}

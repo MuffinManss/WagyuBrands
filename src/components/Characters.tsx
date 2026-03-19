@@ -6,42 +6,44 @@ import Image from 'next/image'
 
 const characters = [
   {
-    name: 'Moonmaru',
-    emoji: '🐄',
+    name: 'Moomaru',
     color: 'from-pink-light to-cream',
     borderColor: 'border-pink-medium/40',
     badgeBg: 'bg-pink',
     image: '/images/mango-sunflowers.gif',
     unoptimized: true,
     role: 'Primary Mascot',
+    birthday: 'February 11th — Hokkaido Snow Festival season',
+    zodiac: 'Aquarius',
     description:
-      'Moonmaru is a dreamy little cow with soft white and brown patches, the fluffiest ears you\'ve ever seen, and a heart full of pure sunshine. She spends her days napping in flower fields, collecting shiny things, and writing tiny letters to her friends.',
-    personality: ['Dreamy 🌙', 'Gentle 🌿', 'Curious ✨', 'Sweet 🍮'],
+      'A gentle little cow from a quiet dairy meadow in Hokkaido, where the snow sparkles like sugar. She loves watching snowflakes fall, collecting ribbons, and sharing warm drinks with friends.',
+    personality: ['Gentle', 'Comforting', 'Shy'],
     favorites: [
-      { icon: '🌸', label: 'Cherry Blossom Tea' },
-      { icon: '📔', label: 'Tiny Journals' },
-      { icon: '🌙', label: 'Moonlit Walks' },
-      { icon: '🍰', label: 'Mochi Cake' },
+      { label: 'Fresh Hokkaido milk & melonpan' },
+      { label: 'Collecting ribbons' },
+      { label: 'Cozy cafés' },
+      { label: 'Watching snow fall' },
     ],
-    funFact: 'Moonmaru once spent an entire afternoon collecting dewdrops in a thimble — just because they sparkled.',
+    funFact: 'Her milk stays warm even on snowy days.',
   },
   {
     name: 'Macarune',
-    emoji: '🦭',
     color: 'from-lavender-light to-cream',
     borderColor: 'border-lavender-medium/40',
     badgeBg: 'bg-lavender',
     image: '/images/pofuyu-char.png',
     unoptimized: false,
     role: 'Secondary Mascot',
+    birthday: '—',
+    zodiac: '—',
     description:
       'Macarune is a round, velvety-brown walrus who takes life at his own perfect pace. He\'s always warm, always snuggly, and has an uncanny ability to make everyone around him feel instantly at home. He believes every day deserves a cozy snack.',
-    personality: ['Cozy 🛋️', 'Loyal 💛', 'Playful 🎈', 'Warm 🍞'],
+    personality: ['Cozy', 'Loyal', 'Playful', 'Warm'],
     favorites: [
-      { icon: '🍱', label: 'Sushi Picnics' },
-      { icon: '🌻', label: 'Sunflower Fields' },
-      { icon: '🎵', label: 'Lo-fi Music' },
-      { icon: '🧸', label: 'Soft Blankets' },
+      { label: 'Sushi Picnics' },
+      { label: 'Sunflower Fields' },
+      { label: 'Lo-fi Music' },
+      { label: 'Soft Blankets' },
     ],
     funFact: 'Macarune keeps a tiny jar of sunflower seeds in his pocket at all times, just in case someone needs cheering up.',
   },
@@ -94,7 +96,7 @@ export default function Characters() {
             <span className="text-gradient">Characters</span>
           </h2>
           <p className="font-body text-brown-medium dark:text-brown-light text-lg max-w-xl mx-auto">
-            Two little souls, one big world of kawaii adventures. 💕
+            Two little souls, one big world of kawaii adventures.
           </p>
         </motion.div>
 
@@ -139,7 +141,7 @@ export default function Characters() {
                       {char.role}
                     </span>
                     <h3 className="font-display font-extrabold text-2xl text-brown-dark dark:text-cream mb-1">
-                      {char.name} {char.emoji}
+                      {char.name}
                     </h3>
                     <p className="font-body text-brown-medium dark:text-brown-light text-sm leading-relaxed">
                       {char.description}
@@ -147,9 +149,21 @@ export default function Characters() {
                   </div>
                 </div>
 
+                {/* Birthday & Zodiac */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="rounded-2xl glass border border-white/40 px-4 py-3">
+                    <p className="font-body font-semibold text-xs text-brown-light uppercase tracking-wider mb-1">Birthday</p>
+                    <p className="font-body text-xs text-brown-dark dark:text-cream leading-snug">{char.birthday}</p>
+                  </div>
+                  <div className="rounded-2xl glass border border-white/40 px-4 py-3">
+                    <p className="font-body font-semibold text-xs text-brown-light uppercase tracking-wider mb-1">Zodiac</p>
+                    <p className="font-body text-xs text-brown-dark dark:text-cream">{char.zodiac}</p>
+                  </div>
+                </div>
+
                 {/* Personality chips */}
                 <div>
-                  <p className="font-body font-semibold text-xs text-brown-light uppercase tracking-wider mb-2">Personality</p>
+                  <p className="font-body font-semibold text-xs text-brown-light uppercase tracking-wider mb-2">Traits</p>
                   <div className="flex flex-wrap gap-2">
                     {char.personality.map(p => (
                       <span
@@ -164,11 +178,10 @@ export default function Characters() {
 
                 {/* Favorites */}
                 <div>
-                  <p className="font-body font-semibold text-xs text-brown-light uppercase tracking-wider mb-2">Favorites</p>
+                  <p className="font-body font-semibold text-xs text-brown-light uppercase tracking-wider mb-2">Likes</p>
                   <div className="grid grid-cols-2 gap-2">
                     {char.favorites.map(f => (
                       <div key={f.label} className="flex items-center gap-2 text-sm font-body text-brown-medium dark:text-brown-light">
-                        <span className="text-base">{f.icon}</span>
                         <span>{f.label}</span>
                       </div>
                     ))}

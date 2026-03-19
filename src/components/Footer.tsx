@@ -50,9 +50,6 @@ export default function Footer() {
               </div>
               <p className="font-body text-xs text-brown-light">by Wagyu Brands</p>
             </div>
-            <p className="font-body text-sm text-brown-medium dark:text-brown-light leading-relaxed max-w-xs">
-              Kawaii collectible characters for people who believe the world needs a little more softness.
-            </p>
           </div>
 
           {/* Navigation */}
@@ -81,27 +78,27 @@ export default function Footer() {
             </p>
             <div className="flex flex-wrap gap-3">
               {[
-                { label: 'Instagram', icon: '📸', href: '#' },
-                { label: 'TikTok',    icon: '🎵', href: '#' },
-                { label: 'Twitter',   icon: '🐦', href: '#' },
-                { label: 'YouTube',   icon: '▶️', href: '#' },
-                { label: 'Discord',   icon: '💬', href: '#' },
+                { label: 'Instagram', href: '#' },
+                { label: 'TikTok',    href: '#' },
+                { label: 'Twitter',   href: '#' },
+                { label: 'YouTube',   href: '#' },
+                { label: 'Discord',   href: '#' },
               ].map(s => (
                 <motion.a
                   key={s.label}
                   href={s.href}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.9 }}
-                  className="w-10 h-10 rounded-2xl glass-card border border-white/60 flex items-center justify-center text-lg shadow-soft"
+                  className="px-3 h-10 rounded-2xl glass-card border border-white/60 flex items-center justify-center text-xs font-body font-semibold text-brown-medium shadow-soft"
                   aria-label={s.label}
                   title={s.label}
                 >
-                  {s.icon}
+                  {s.label}
                 </motion.a>
               ))}
             </div>
             <p className="font-body text-xs text-brown-light mt-4">
-              Coming soon on all platforms! 🌸
+              Coming soon on all platforms!
             </p>
           </div>
         </div>
@@ -110,7 +107,7 @@ export default function Footer() {
         <div className="border-t border-brown-light/20 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-body text-brown-light">
           <p>© {new Date().getFullYear()} Wagyu Brands. All rights reserved.</p>
           <p className="flex items-center gap-1">
-            Made with <span className="text-pink-medium animate-pulse-soft">♥</span> for the kawaii community
+            Made with love for the kawaii community
           </p>
         </div>
       </div>
