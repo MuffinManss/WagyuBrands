@@ -151,3 +151,21 @@ Deployed to **Vercel**. Environment variables (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT
 | `npm run build` | Build for production |
 | `npm run start` | Start production server |
 | `npm run lint` | Run ESLint |
+
+---
+
+## Available Skills (.claude/skills/)
+
+These skills are installed in `.claude/skills/` and provide deep context for common tasks. Claude should load the relevant skill(s) at the start of any session involving that domain.
+
+| Skill | File | When to use |
+|---|---|---|
+| **frontend-design** | `.claude/skills/frontend-design/SKILL.md` | Building or redesigning any UI component, section, or page. Contains animation patterns, glassmorphism card templates, section wrapper pattern, button variants, and all available CSS utilities. |
+| **wagyu-brands** | `.claude/skills/wagyu-brands/SKILL.md` | Any work involving brand content, character references, copy, color palette, image assets, or the Supabase email capture feature. Contains full color tokens, typography, tone of voice, asset inventory, and EmailCapture component docs. |
+| **nextjs-conventions** | `.claude/skills/nextjs-conventions/SKILL.md` | Creating new components, API routes, or restructuring files. Contains App Router patterns, import alias rules, sections/ vs ui/ split rules, image conventions, and environment variable docs. |
+
+### Skill loading heuristics
+- Working on a new section or redesigning visuals → load `frontend-design` + `wagyu-brands`
+- Adding a new component file → load `nextjs-conventions`
+- Writing brand copy or referencing characters → load `wagyu-brands`
+- Setting up on a new device or fixing import errors → load `nextjs-conventions`
