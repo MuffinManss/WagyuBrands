@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(cd \"C:/Users/steve/OneDrive/Desktop/moonmaru\" && npm run dev)"
+      "Bash(npm run:*)",
+      "Bash(npx next:*)",
+      "Bash(npm install:*)",
+      "Bash(git pull:*)",
+      "Bash(git add:*)"
     ]
   }
 }

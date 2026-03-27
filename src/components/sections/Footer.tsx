@@ -1,0 +1,116 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+
+const NAV_LINKS = [
+  { label: 'Home',        href: '#hero' },
+  { label: 'Marketplace', href: '#marketplace' },
+  { label: 'About',       href: '#about' },
+  { label: 'Characters',  href: '#characters' },
+  { label: 'Community',   href: '#community' },
+]
+
+export default function Footer() {
+  return (
+    <footer className="relative pt-16 pb-8 px-4 overflow-hidden" aria-label="Footer">
+      {/* Wave top */}
+      <div className="wave-divider -mt-16 mb-0 pointer-events-none" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ height: 64 }}>
+          <path
+            d="M0,40 C360,80 1080,0 1440,40 L1440,0 L0,0 Z"
+            fill="currentColor"
+            className="text-cream dark:text-[#1a1117]"
+          />
+        </svg>
+      </div>
+
+      <div
+        className="absolute inset-0 -z-10"
+        style={{
+          background: 'linear-gradient(180deg, #f5ede0 0%, #fffaf3 100%)',
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="max-w-6xl mx-auto">
+        {/* Main footer grid */}
+        <div className="grid md:grid-cols-3 gap-10 mb-10">
+          {/* Brand */}
+          <div>
+            <div className="flex flex-col gap-1 mb-4">
+              <div className="relative h-10 w-36">
+                <Image
+                  src="/images/moomaru-logo.png"
+                  alt="Moonmaru"
+                  fill
+                  className="object-contain object-left"
+                  sizes="144px"
+                />
+              </div>
+              <p className="font-body text-xs text-brown-light">by Wagyu Brands</p>
+            </div>
+          </div>
+
+          {/* Navigation */}
+          <div>
+            <p className="font-display font-bold text-brown-dark dark:text-cream text-sm uppercase tracking-wider mb-4">
+              Explore
+            </p>
+            <ul className="flex flex-col gap-2" role="list">
+              {NAV_LINKS.map(link => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="font-body text-sm text-brown-medium dark:text-brown-light hover:text-brown-dark dark:hover:text-cream transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Socials */}
+          <div>
+            <p className="font-display font-bold text-brown-dark dark:text-cream text-sm uppercase tracking-wider mb-4">
+              Follow Us
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {[
+                { label: 'Instagram', href: '#' },
+                { label: 'TikTok',    href: '#' },
+                { label: 'Twitter',   href: '#' },
+                { label: 'YouTube',   href: '#' },
+                { label: 'Discord',   href: '#' },
+              ].map(s => (
+                <motion.a
+                  key={s.label}
+                  href={s.href}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="px-3 h-10 rounded-2xl glass-card border border-white/60 flex items-center justify-center text-xs font-body font-semibold text-brown-medium shadow-soft"
+                  aria-label={s.label}
+                  title={s.label}
+                >
+                  {s.label}
+                </motion.a>
+              ))}
+            </div>
+            <p className="font-body text-xs text-brown-light mt-4">
+              Coming soon on all platforms!
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-brown-light/20 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-body text-brown-light">
+          <p>© {new Date().getFullYear()} Wagyu Brands. All rights reserved.</p>
+          <p className="flex items-center gap-1">
+            Made with love for the kawaii community
+          </p>
+        </div>
+      </div>
+    </footer>
+  )
+}

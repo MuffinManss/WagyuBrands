@@ -24,17 +24,21 @@ A beautiful, production-ready Next.js 14 kawaii landing page for **Moonmaru** an
 
 ## 🚀 Quick Start
 
-### 1. Install dependencies
+### 1. Use the correct Node version
+
+```bash
+nvm use
+```
+
+This reads `.nvmrc` and switches to Node 20 LTS. Install nvm if you haven't already.
+
+### 2. Install dependencies
 
 ```bash
 npm install
-# or
-yarn install
-# or
-pnpm install
 ```
 
-### 2. Set up environment variables
+### 3. Set up environment variables
 
 ```bash
 cp .env.local.example .env.local
@@ -42,13 +46,15 @@ cp .env.local.example .env.local
 
 Open `.env.local` and fill in your Supabase credentials (see below).
 
-### 3. Run the dev server
+### 4. Run the dev server
 
 ```bash
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) 🎉
+
+> **Working across multiple devices?** Always `git pull` before starting, and make sure `.env.local` is copied on each machine — it is not committed to git.
 
 ---
 
@@ -146,16 +152,15 @@ Change the `@import` URL and `font-family` values in `src/app/globals.css`.
 
 ### Content
 
-| What to change         | File                              |
-|------------------------|-----------------------------------|
-| Hero taglines          | `src/components/Hero.tsx`         |
-| Character profiles     | `src/components/Characters.tsx`   |
-| Brand story timeline   | `src/components/Story.tsx`        |
-| Product cards          | `src/components/Products.tsx`     |
-| Gallery images         | `src/components/Gallery.tsx`      |
-| Social links           | `src/components/Community.tsx`    |
-| Footer links           | `src/components/Footer.tsx`       |
-| SEO metadata           | `src/app/layout.tsx`              |
+| What to change         | File                                        |
+|------------------------|---------------------------------------------|
+| Hero banner            | `src/components/sections/Hero.tsx`          |
+| About section          | `src/components/sections/AboutBrand.tsx`    |
+| Character profiles     | `src/components/sections/Characters.tsx`    |
+| Social links / video   | `src/components/sections/Community.tsx`     |
+| Marketplace placeholder| `src/components/sections/Marketplace.tsx`   |
+| Footer links           | `src/components/sections/Footer.tsx`        |
+| SEO metadata           | `src/app/layout.tsx`                        |
 
 ### Images
 
@@ -166,9 +171,9 @@ Add new images to `public/images/` and reference them with `/images/filename.ext
 ## 📁 Project Structure
 
 ```
-moonmaru/
+WagyuBrands/
 ├── public/
-│   └── images/          # All character images and gifs
+│   └── images/              # All character images and gifs
 ├── src/
 │   ├── app/
 │   │   ├── api/subscribe/route.ts   # Email capture API
@@ -176,24 +181,27 @@ moonmaru/
 │   │   ├── layout.tsx               # Root layout + SEO metadata
 │   │   └── page.tsx                 # Main page
 │   └── components/
-│       ├── BackToTop.tsx
-│       ├── Characters.tsx
-│       ├── Community.tsx
-│       ├── CustomCursor.tsx
-│       ├── EmailCapture.tsx         # Reusable email form
-│       ├── Footer.tsx
-│       ├── Gallery.tsx
-│       ├── Hero.tsx
-│       ├── LoadingScreen.tsx
-│       ├── Navigation.tsx
-│       ├── Particles.tsx
-│       ├── Products.tsx
-│       ├── ScrollProgress.tsx
-│       ├── Story.tsx
-│       └── ThemeToggle.tsx
+│       ├── sections/                # Page section components
+│       │   ├── Hero.tsx
+│       │   ├── AboutBrand.tsx
+│       │   ├── Characters.tsx
+│       │   ├── Community.tsx
+│       │   ├── Marketplace.tsx
+│       │   ├── Footer.tsx
+│       │   └── EmailCapture.tsx     # Reusable email form
+│       └── ui/                      # Shared UI components
+│           ├── BackToTop.tsx
+│           ├── ClientOnlyExtras.tsx
+│           ├── CustomCursor.tsx
+│           ├── LoadingScreen.tsx
+│           ├── Particles.tsx
+│           ├── ScrollProgress.tsx
+│           └── ThemeToggle.tsx
 ├── supabase/
 │   └── schema.sql                   # Run this in Supabase SQL Editor
 ├── .env.local.example
+├── .nvmrc                           # Node 20 LTS
+├── CLAUDE.md                        # AI assistant context file
 ├── .gitignore
 ├── next.config.js
 ├── package.json

@@ -1,12 +1,12 @@
-import Hero from '@/components/Hero'
-import Marketplace from '@/components/Marketplace'
-import AboutBrand from '@/components/AboutBrand'
-import Characters from '@/components/Characters'
-import Community from '@/components/Community'
-import Footer from '@/components/Footer'
-import ScrollProgress from '@/components/ScrollProgress'
-import BackToTop from '@/components/BackToTop'
-import ClientOnlyExtras from '@/components/ClientOnlyExtras'
+import Hero from '@/components/sections/Hero'
+import Marketplace from '@/components/sections/Marketplace'
+import AboutBrand from '@/components/sections/AboutBrand'
+import Characters from '@/components/sections/Characters'
+import Community from '@/components/sections/Community'
+import Footer from '@/components/sections/Footer'
+import ScrollProgress from '@/components/ui/ScrollProgress'
+import BackToTop from '@/components/ui/BackToTop'
+import ClientOnlyExtras from '@/components/ui/ClientOnlyExtras'
 
 export default function Home() {
   return (
