@@ -117,12 +117,12 @@ export default function Community() {
           <span className="inline-block px-4 py-1 rounded-full glass text-brown-dark text-sm font-semibold font-body mb-3 border border-brown-light/30">
             Join Us
           </span>
-          <h2 className="font-display font-extrabold text-4xl md:text-5xl text-brown-dark dark:text-cream mb-3">
+          <h2 className="font-display font-extrabold text-4xl md:text-5xl text-brown-dark mb-3">
             Follow the{' '}
             <span className="text-gradient">Adventures</span>
           </h2>
-          <p className="font-body text-brown-medium dark:text-brown-light text-lg max-w-xl mx-auto">
-            Moonmaru and Macarune are always up to something cute. Come hang out!
+          <p className="font-body text-brown-medium text-lg max-w-xl mx-auto">
+            Moomaru and Macarune are always up to something cute. Come hang out!
           </p>
         </motion.div>
 
@@ -165,7 +165,7 @@ export default function Community() {
                   {s.icon}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-display font-bold text-brown-dark dark:text-cream text-sm">{s.name}</p>
+                  <p className="font-display font-bold text-brown-dark text-sm">{s.name}</p>
                   <p className="font-body text-xs text-brown-light truncate">{s.handle}</p>
                 </div>
                 <motion.span

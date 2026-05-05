@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import EmailCapture from '@/components/sections/EmailCapture'
 
 export default function Marketplace() {
   const ref = useRef<HTMLElement>(null)
@@ -26,17 +27,29 @@ export default function Marketplace() {
         aria-hidden="true"
       />
 
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center"
+          className="mb-10"
         >
-          <h2 className="font-display font-extrabold text-4xl md:text-5xl text-brown-dark dark:text-cream mb-4">
+          <h2 className="font-display font-extrabold text-4xl md:text-5xl text-brown-dark mb-4">
             Wagyu Shops{' '}
             <span className="text-gradient">Coming Soon</span>
           </h2>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
+          <EmailCapture
+            source="marketplace"
+            placeholder="your@email.com"
+            buttonText="Notify Me"
+          />
         </motion.div>
       </div>
     </section>

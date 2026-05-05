@@ -5,7 +5,6 @@ import Characters from '@/components/sections/Characters'
 import Community from '@/components/sections/Community'
 import Footer from '@/components/sections/Footer'
 import ScrollProgress from '@/components/ui/ScrollProgress'
-import BackToTop from '@/components/ui/BackToTop'
 import ClientOnlyExtras from '@/components/ui/ClientOnlyExtras'
 
 export default function Home() {
@@ -16,9 +15,6 @@ export default function Home() {
 
       {/* Scroll progress bar */}
       <ScrollProgress />
-
-      {/* Back to top */}
-      <BackToTop />
 
       {/* ── Sections ─────────────────────────────── */}
       <main>

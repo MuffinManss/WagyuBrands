@@ -20,7 +20,7 @@ export default function Footer() {
           <path
             d="M0,40 C360,80 1080,0 1440,40 L1440,0 L0,0 Z"
             fill="currentColor"
-            className="text-cream dark:text-[#1a1117]"
+            className="text-cream"
           />
         </svg>
       </div>
@@ -54,7 +54,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <p className="font-display font-bold text-brown-dark dark:text-cream text-sm uppercase tracking-wider mb-4">
+            <p className="font-display font-bold text-brown-dark text-sm uppercase tracking-wider mb-4">
               Explore
             </p>
             <ul className="flex flex-col gap-2" role="list">
@@ -62,7 +62,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="font-body text-sm text-brown-medium dark:text-brown-light hover:text-brown-dark dark:hover:text-cream transition-colors"
+                    className="font-body text-sm text-brown-medium hover:text-brown-dark transition-colors"
                   >
                     {link.label}
                   </a>
@@ -73,7 +73,7 @@ export default function Footer() {
 
           {/* Socials */}
           <div>
-            <p className="font-display font-bold text-brown-dark dark:text-cream text-sm uppercase tracking-wider mb-4">
+            <p className="font-display font-bold text-brown-dark text-sm uppercase tracking-wider mb-4">
               Follow Us
             </p>
             <div className="flex flex-wrap gap-3">

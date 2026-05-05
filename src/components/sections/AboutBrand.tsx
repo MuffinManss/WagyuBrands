@@ -34,14 +34,14 @@ export default function AboutBrand() {
             <span className="inline-block px-4 py-1 rounded-full glass text-brown-dark text-sm font-semibold font-body mb-4 border border-brown-light/30">
               Our Story
             </span>
-            <h2 className="font-display font-extrabold text-4xl md:text-5xl text-brown-dark dark:text-cream mb-5 leading-tight">
+            <h2 className="font-display font-extrabold text-4xl md:text-5xl text-brown-dark mb-5 leading-tight">
               About{' '}
               <span className="text-gradient">Wagyu Brands</span>
             </h2>
-            <p className="font-body text-brown-medium dark:text-brown-light text-base md:text-lg leading-relaxed mb-4">
+            <p className="font-body text-brown-medium text-base md:text-lg leading-relaxed mb-4">
               Established in Osaka, 2025.
             </p>
-            <p className="font-body text-brown-medium dark:text-brown-light text-base leading-relaxed">
+            <p className="font-body text-brown-medium text-base leading-relaxed">
               Wagyu Brands is a lifestyle brand centered on Moomaru and Friends, bringing a little joy to everyday life.
             </p>
           </motion.div>

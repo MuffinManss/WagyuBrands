@@ -91,11 +91,11 @@ export default function Characters() {
           <span className="inline-block px-4 py-1 rounded-full glass-pink text-brown-dark text-sm font-semibold font-body mb-3 border border-pink-medium/30">
             Meet the Gang
           </span>
-          <h2 className="font-display font-extrabold text-4xl md:text-5xl text-brown-dark dark:text-cream mb-3">
+          <h2 className="font-display font-extrabold text-4xl md:text-5xl text-brown-dark mb-3">
             Our{' '}
             <span className="text-gradient">Characters</span>
           </h2>
-          <p className="font-body text-brown-medium dark:text-brown-light text-lg max-w-xl mx-auto">
+          <p className="font-body text-brown-medium text-lg max-w-xl mx-auto">
             Two little souls, one big world of kawaii adventures.
           </p>
         </motion.div>
@@ -140,10 +140,10 @@ export default function Characters() {
                     <span className={`inline-block ${char.badgeBg} text-brown-dark text-xs font-semibold font-body px-3 py-1 rounded-full mb-2`}>
                       {char.role}
                     </span>
-                    <h3 className="font-display font-extrabold text-2xl text-brown-dark dark:text-cream mb-1">
+                    <h3 className="font-display font-extrabold text-2xl text-brown-dark mb-1">
                       {char.name}
                     </h3>
-                    <p className="font-body text-brown-medium dark:text-brown-light text-sm leading-relaxed">
+                    <p className="font-body text-brown-medium text-sm leading-relaxed">
                       {char.description}
                     </p>
                   </div>
@@ -153,11 +153,11 @@ export default function Characters() {
                 <div className="grid grid-cols-2 gap-3">
                   <div className="rounded-2xl glass border border-white/40 px-4 py-3">
                     <p className="font-body font-semibold text-xs text-brown-light uppercase tracking-wider mb-1">Birthday</p>
-                    <p className="font-body text-xs text-brown-dark dark:text-cream leading-snug">{char.birthday}</p>
+                    <p className="font-body text-xs text-brown-dark leading-snug">{char.birthday}</p>
                   </div>
                   <div className="rounded-2xl glass border border-white/40 px-4 py-3">
                     <p className="font-body font-semibold text-xs text-brown-light uppercase tracking-wider mb-1">Zodiac</p>
-                    <p className="font-body text-xs text-brown-dark dark:text-cream">{char.zodiac}</p>
+                    <p className="font-body text-xs text-brown-dark">{char.zodiac}</p>
                   </div>
                 </div>
 
@@ -168,7 +168,7 @@ export default function Characters() {
                     {char.personality.map(p => (
                       <span
                         key={p}
-                        className="px-3 py-1 rounded-full glass text-brown-dark dark:text-cream text-xs font-body font-medium border border-white/40"
+                        className="px-3 py-1 rounded-full glass text-brown-dark text-xs font-body font-medium border border-white/40"
                       >
                         {p}
                       </span>
@@ -181,7 +181,7 @@ export default function Characters() {
                   <p className="font-body font-semibold text-xs text-brown-light uppercase tracking-wider mb-2">Likes</p>
                   <div className="grid grid-cols-2 gap-2">
                     {char.favorites.map(f => (
-                      <div key={f.label} className="flex items-center gap-2 text-sm font-body text-brown-medium dark:text-brown-light">
+                      <div key={f.label} className="flex items-center gap-2 text-sm font-body text-brown-medium">
                         <span>{f.label}</span>
                       </div>
                     ))}
