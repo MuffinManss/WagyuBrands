@@ -5,7 +5,6 @@ import Image from 'next/image'
 
 const NAV_LINKS = [
   { label: 'Home',        href: '#hero' },
-  { label: 'Marketplace', href: '#marketplace' },
   { label: 'About',       href: '#about' },
   { label: 'Characters',  href: '#characters' },
   { label: 'Community',   href: '#community' },
@@ -78,15 +77,15 @@ export default function Footer() {
             </p>
             <div className="flex flex-wrap gap-3">
               {[
-                { label: 'Instagram', href: '#' },
-                { label: 'TikTok',    href: '#' },
-                { label: 'Twitter',   href: '#' },
-                { label: 'YouTube',   href: '#' },
-                { label: 'Discord',   href: '#' },
+                { label: 'Instagram', href: 'https://www.instagram.com/wagyubrands/' },
+                { label: 'TikTok',    href: 'https://www.tiktok.com/@wagyubrands' },
+                { label: 'Twitter',   href: 'https://x.com/wagyubrands' },
               ].map(s => (
                 <motion.a
                   key={s.label}
                   href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.9 }}
                   className="px-3 h-10 rounded-2xl glass-card border border-white/60 flex items-center justify-center text-xs font-body font-semibold text-brown-medium shadow-soft"
@@ -97,9 +96,6 @@ export default function Footer() {
                 </motion.a>
               ))}
             </div>
-            <p className="font-body text-xs text-brown-light mt-4">
-              Coming soon on all platforms!
-            </p>
           </div>
         </div>
 
