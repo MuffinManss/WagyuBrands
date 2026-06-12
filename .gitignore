@@ -24,8 +24,10 @@ yarn-debug.log*
 yarn-error.log*
 
 # Local env files — NEVER COMMIT THESE
-.env*.local
 .env
+.env.*
+!.env.example
+!.env.local.example
 
 # Vercel
 .vercel

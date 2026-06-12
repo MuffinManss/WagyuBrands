@@ -4,7 +4,7 @@
 
 **Wagyu Brands** is a kawaii lifestyle brand centered on two characters: **Moomaru** (a gentle white and brown cow from Hokkaido) and **Macarune** (a round, velvety-brown walrus). The brand draws inspiration from Sanrio and San-X aesthetics.
 
-This repo is the **pre-launch website** — a Next.js 14 landing page deployed on Vercel, with a Supabase-backed email capture waitlist.
+This repo is the **pre-launch website** — a Next.js 16 landing page deployed on Vercel, with a Supabase-backed email capture waitlist.
 
 ---
 
@@ -23,7 +23,7 @@ Image files use `moomaru-` and `macarune-` prefixes in `public/images/`.
 
 | Tool | Purpose |
 |---|---|
-| Next.js 14 (App Router) | Framework |
+| Next.js 16 (App Router) | Framework |
 | TypeScript | Type safety |
 | Tailwind CSS | Styling |
 | Framer Motion | Animations |
@@ -82,22 +82,13 @@ src/
     │   ├── AboutBrand.tsx       # Brand origin story
     │   ├── Characters.tsx       # Moomaru & Macarune cards
     │   ├── Community.tsx        # Social links + video preview
-    │   ├── Marketplace.tsx      # "Coming Soon" shop placeholder
+    │   ├── Marketplace.tsx      # "Coming Soon" shop teaser
     │   ├── Footer.tsx
-    │   ├── EmailCapture.tsx     # Reusable email signup form
-    │   ├── Gallery.tsx          # (orphaned — not in page.tsx yet)
-    │   ├── MoomaruPeek.tsx      # (orphaned — not in page.tsx yet)
-    │   ├── Navigation.tsx       # (orphaned — not in page.tsx yet)
-    │   ├── Products.tsx         # (orphaned — not in page.tsx yet)
-    │   └── Story.tsx            # (orphaned — not in page.tsx yet)
+    │   └── EmailCapture.tsx     # Reusable Supabase signup form (not currently mounted)
     └── ui/                      # Shared/utility components
-        ├── BackToTop.tsx
-        ├── ClientOnlyExtras.tsx # Lazy-loads loading screen, particles, cursor
-        ├── CustomCursor.tsx
-        ├── LoadingScreen.tsx    # Full-screen Moomaru splash on load
+        ├── ClientOnlyExtras.tsx # Lazy-loads particles
         ├── Particles.tsx
-        ├── ScrollProgress.tsx
-        └── ThemeToggle.tsx
+        └── ScrollProgress.tsx
 
 public/images/                   # All character assets
 supabase/schema.sql              # Run this in Supabase SQL Editor to set up the DB
@@ -113,14 +104,10 @@ All images follow a consistent naming convention:
 |---|---|
 | `hero-wagyu-logo.png` | Hero banner (Wagyu Brands logo) |
 | `hero-characters-center.png` | Hero banner (Moomaru + Macarune together) |
-| `hero-main-scene.png` | Hero full-width character scene |
-| `moomaru-sunflowers.gif` | Characters card, LoadingScreen |
-| `moomaru-void.gif` | Story, Gallery (orphaned) |
-| `moomaru-peek-banner.png` | MoomaruPeek, Gallery (orphaned) |
-| `moomaru-logo.png` | Footer, Navigation (orphaned) |
-| `moomaru-macarune-scene.jpeg` | Story, Gallery (orphaned) |
-| `macarune-character.png` | Characters card, Gallery (orphaned) |
-| `macarune-sushi.gif` | Gallery (orphaned) |
+| `hero-main-scene.png` | Hero full-width scene; Community wallpaper download |
+| `moomaru-sunflowers.gif` | Characters card |
+| `moomaru-logo.png` | Footer |
+| `macarune-character.png` | Characters card |
 | `social-media-preview.mov` | Community section video |
 
 **Missing:** `og-cover.png` — referenced in `layout.tsx` for Open Graph metadata but not yet created. Add a 1200×630px image to `public/images/` when ready.
